@@ -10,19 +10,20 @@ export default function HomePage() {
 		<main className='flex min-h-screen flex-col items-center justify-center px-56 bg-white text-black '>
 				<div className='mb-36'>
 				{/* TITLE */}
-				<div className='flex justify-center align-center'>
+				<div className='flex justify-center align-center mt-24'>
 				<h1 className='text-center text-8xl font-black text-blue-500 '>Ez</h1>
 				<h1 className='text-center text-8xl font-black'>Link</h1>
 				</div>
 				
 				{/* //Input */}
+				<div className='flex justify-center items-end'>
 				<input className='mt-10 border-solid border-2 border-gray-300 rounded-l-lg p-2 w-96
 				focus:outline-none'
 				type='text' placeholder='Enter Link URL'>
 				</input>
 				<button className='duration-300 bg-gray-300 pb-4 pt-1 left-2.5 rounded-r-lg w-20 text-black
 				hover:bg-gray-400 hover:duration-300'><svg className='relative left-6 top-1.5' xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/></svg></button>
-
+				</div>
 				{/* //Invalid URL INDICATOR */}
 				<div className='flex items-center mt-5'>
 					<div className='bg-red-500 w-4 h-4 rounded-lg mr-2'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} 

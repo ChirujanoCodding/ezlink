@@ -4,7 +4,7 @@ import NavBar from './components/NavBar';
 import Copyright from './components/Copyright';
 import HomePage from './components/HomePage';
 import Login from './components/Login';
-import "./components/fonts.css"
+import "./components/style.css"
 
 export default function Home() {
 	return (
