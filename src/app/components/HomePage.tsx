@@ -20,8 +20,8 @@ export default function HomePage() {
 				focus:outline-none'
 				type='text' placeholder='Enter Link URL'>
 				</input>
-				<button className='duration-300 bg-gray-300 p-2.5 left-2.5 rounded-r-lg w-20 text-black font-black
-				hover:bg-gray-400 hover:duration-300'>→</button>
+				<button className='duration-300 bg-gray-300 pb-4 pt-1 left-2.5 rounded-r-lg w-20 text-black
+				hover:bg-gray-400 hover:duration-300'><svg className='relative left-6 top-1.5' xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/></svg></button>
 
 				{/* //Invalid URL INDICATOR */}
 				<div className='flex items-center mt-5'>
