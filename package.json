@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "format": "rome format --write ."
+    "format": "rome format --write ./pages ./src"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
