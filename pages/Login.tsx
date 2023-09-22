@@ -1,6 +1,5 @@
 import React from 'react'
 import Copyright from './Copyright'
-import {Link} from 'react-router-dom'
 
 export default function Login() {
   return (
@@ -42,8 +41,8 @@ export default function Login() {
             </svg>
         </div>
         <div className='flex justify-center items-center mt-12'>
-        <Link to = "/Register"><p className='text-sm text-center text-gray-500 mt-5 w-max hover:cursor-pointer'>Don´t have an account? Sign Up</p>
-        </Link>
+        <a><p className='text-sm text-center text-gray-500 mt-5 w-max hover:cursor-pointer'>Don´t have an account? Sign Up</p>
+        </a>
         </div>
     </div>
 </div>
