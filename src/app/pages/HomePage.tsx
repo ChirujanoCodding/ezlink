@@ -21,6 +21,7 @@ export default function HomePage() {
 
   return (
     <div>
+		<NavBar></NavBar>
 		<main className='flex min-h-screen flex-col items-center justify-center px-56 bg-white text-black '>
 				<div className='mb-36'>
 				{/* TITLE */}

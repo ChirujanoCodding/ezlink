@@ -2,30 +2,49 @@ import React from 'react'
 import Copyright from './Copyright'
 import {Link} from 'react-router-dom'
 
-export default function Login() {
+export default function Register() {
   return (
     <div>
         <div className='flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-gray-700 to-gray-900'>
     <div className='rounded-xl bg-gray-900 p-24 pb-12 pt-10 w-128 flex-col justify-center items-center'>
-        <h1 className='text-2xl font-bold text-center'>LOGIN</h1>
-        <p className='text-sm text-center text-gray-500 mt-5'>Please enter your login and password</p>
+        <h1 className='text-2xl font-bold text-center'>Register</h1>
+        <p className='text-sm text-center text-gray-500 mt-5'>Please Register</p>
 
+
+        {/* USERNAME */}
         <div className='flex justify-center items-center'>
         <input className='mt-10 bg-transparent border-solid border-2 border-gray-800 rounded-lg p-2 w-30
+        focus:outline-none'
+        type='text' placeholder='Username'>
+        </input>
+        </div>
+        {/* EMAIL */}
+        <div className='flex justify-center items-center'>
+        <input className='mt-5 bg-transparent border-solid border-2 border-gray-800 rounded-lg p-2 w-30
         focus:outline-none'
         type='text' placeholder='E-mail'>
         </input>
         </div>
 
+        {/* PASSWORDS */}
         <div className='flex justify-center items-center'>
         <input className='mt-5 bg-transparent border-solid border-2 border-gray-800 rounded-lg p-2 w-30
         focus:outline-none'
         type='password' placeholder='Password'>
         </input>
         </div>
-        <a><p className='text-sm text-center text-gray-500 mt-5 hover:cursor-pointer'>Forgot password?</p></a>
+
+        <div className='flex justify-center items-center'>
+        <input className='mt-5 bg-transparent border-solid border-2 border-gray-800 rounded-lg p-2 w-30
+        focus:outline-none'
+        type='password' placeholder='Confirm Password'>
+        </input>
+        </div>
+
+        {/* REGISTER */}
         <div className='flex justify-center items-center mt-12'>
-        <button className='rounded-lg duration-300 border-solid border-2 border-white p-2 px-8 hover:text-black hover:bg-gray-300 hover:duration-300'>Login</button>
+        <button className='rounded-lg duration-300 border-solid border-2 border-white p-2 px-8 hover:text-black hover:bg-gray-300
+         hover:duration-300'>Register</button>
         </div>
         <div className='flex justify-center items-center mt-5 gap-4'>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" 
@@ -41,9 +60,10 @@ export default function Login() {
               <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
             </svg>
         </div>
+
         <div className='flex justify-center items-center mt-12'>
-        <Link to = "/Register"><p className='text-sm text-center text-gray-500 mt-5 w-max hover:cursor-pointer'>Don´t have an account? Sign Up</p>
-        </Link>
+        <Link to = "/Login"><p className='text-sm text-center text-gray-500 mt-5 w-max hover:cursor-pointer'>
+            Already have an account? Sign In</p></Link>
         </div>
     </div>
 </div>

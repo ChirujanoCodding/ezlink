@@ -1,14 +1,13 @@
 import Image from 'next/image'
 import mylogo from '../components/LOGO.png'
-import Login from './Login'
-import Link from 'next/link'
+import {Link} from 'react-router-dom'
 
 export default function NavBar() {
     return (
       <main>   
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
     <div className="w-full flex justify-between items-center p-1">
-    <a>
+    <Link to = "/">
     <Image
       className='hover:cursor-pointer hover:rotate-3'
       src={mylogo}
@@ -16,7 +15,7 @@ export default function NavBar() {
       height={90}
       alt="EzLink"
      />
-    </a>
+    </Link>
     <div className='mr-5'>
     <button data-collapse-toggle="navbar-default" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm 
     text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 
@@ -42,7 +41,7 @@ export default function NavBar() {
           md:p-0 dark:text-white md:dark:hover:text-gray-500 hover:cursor-pointer hover:bottom-0.5 hover:duration-300">Dashboard</a>
         </li>
         <li>
-          <Link href="/Login" className="duration-300 relative bottom-0 block py-2 pl-3 pr-4 text-gray-900
+          <Link to = "/Login" className="duration-300 relative bottom-0 block py-2 pl-3 pr-4 text-gray-900
           md:p-0 dark:text-white md:dark:hover:text-gray-500 hover:cursor-pointer hover:bottom-0.5 hover:duration-300">Log-In</Link>
         </li>
       </ul>
