@@ -1,15 +1,17 @@
 import Image from 'next/image';
-import Characteristics from './components/Characteristics';
-import NavBar from './components/NavBar';
-import Copyright from './components/Copyright';
-import HomePage from './components/HomePage';
-import Login from './components/Login';
+import Characteristics from './pages/Characteristics';
+import NavBar from './pages/NavBar';
+import Copyright from './pages/Copyright';
+import Login from './pages/Login';
 import "./components/style.css"
+import HomePage from './pages/HomePage';
+import Link from 'next/link';
 
 export default function Home() {
 	return (
 		<div>
-			<HomePage></HomePage>
+			<NavBar></NavBar>
+			<HomePage/>
 		</div>
 	);
 }

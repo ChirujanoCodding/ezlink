@@ -2,3 +2,10 @@
 *{
     font-family: 'Inter';
 }
+
+.hide{
+    display: none;
+}
+.show{
+    display: flex;
+}
