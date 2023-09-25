@@ -4,6 +4,7 @@ import NavBar from "@/components/NavBar";
 import Characteristics from "@/components/Characteristics";
 import Copyright from "@/components/Copyright";
 import "./index.css";
+import Link from "next/link";
 
 function isValidURL(url: string): boolean {
   const firstUrlPart =
@@ -46,6 +47,7 @@ export default function HomePage() {
               value={url}
               onChange={handleInputChange}
             ></input>
+            <Link href={"/login"}>
             <button
               className="duration-300 bg-gray-300 left-2.5 rounded-r-lg w-20 text-black
 				hover:bg-gray-400 hover:duration-300"
@@ -56,6 +58,7 @@ export default function HomePage() {
                 </svg>
               </div>
             </button>
+            </Link>
           </div>
 
           {/* //Invalid URL INDICATOR */}

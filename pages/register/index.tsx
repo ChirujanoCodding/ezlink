@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function Register() {
@@ -50,12 +51,14 @@ export default function Register() {
 
           {/* REGISTER */}
           <div className="flex justify-center items-center mt-12">
+            <Link href={"/homepage"}>
             <button
               className="rounded-lg duration-300 border-solid border-2 border-white p-2 px-8 hover:text-black hover:bg-gray-300
          hover:duration-300"
             >
               Register
             </button>
+            </Link>
           </div>
           <div className="flex justify-center items-center mt-5 gap-4">
             <svg
@@ -91,11 +94,11 @@ export default function Register() {
           </div>
 
           <div className="flex justify-center items-center mt-12">
-            <a href="/login">
+            <Link href="/login">
               <p className="text-sm text-center text-gray-500 mt-5 w-max hover:cursor-pointer">
                 Already have an account? Sign In
               </p>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

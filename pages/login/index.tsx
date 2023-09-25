@@ -1,5 +1,6 @@
 import React from "react";
 import "./index.css";
+import Link from "next/link";
 
 export default function Login() {
   return (
@@ -34,9 +35,10 @@ export default function Login() {
             </p>
           </a>
           <div className="flex justify-center items-center mt-12">
-            <button className="rounded-lg duration-300 border-solid border-2 border-white p-2 px-8 hover:text-black hover:bg-gray-300 hover:duration-300">
+            <Link href={"/homepage"}><button className="rounded-lg duration-300 border-solid border-2 border-white p-2 px-8 hover:text-black hover:bg-gray-300 hover:duration-300">
               Login
             </button>
+            </Link>
           </div>
           <div className="flex justify-center items-center mt-5 gap-4">
             <svg
@@ -71,11 +73,11 @@ export default function Login() {
             </svg>
           </div>
           <div className="flex justify-center items-center mt-12">
-            <a>
+            <Link href={"/register"}>
               <p className="text-sm text-center text-gray-500 mt-5 w-max hover:cursor-pointer">
                 Don´t have an account? Sign Up
               </p>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

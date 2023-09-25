@@ -1,5 +1,6 @@
 import Image from "next/image";
 import mylogo from "../../../public/LOGO.png";
+import Link from "next/link";
 
 export default function NavBar() {
   return (
@@ -75,12 +76,12 @@ export default function NavBar() {
                   </a>
                 </li>
                 <li>
-                  <a
+                  <Link href={"/login"}
                     className="duration-300 relative bottom-0 block py-2 pl-3 pr-4 text-gray-900
           md:p-0 dark:text-white md:dark:hover:text-gray-500 hover:cursor-pointer hover:bottom-0.5 hover:duration-300"
                   >
                     Log-In
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
