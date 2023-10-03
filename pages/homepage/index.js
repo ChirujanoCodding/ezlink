@@ -1,12 +1,13 @@
 "use client";
-import React, { FC, useState } from "react";
+import React, { useState } from "react";
 import NavBar from "@/components/NavBar";
 import Characteristics from "@/components/Characteristics";
 import Copyright from "@/components/Copyright";
 import "./index.css";
-import Link from "next/link";
+import Head from "next/head";
+import { useRouter } from "next/router";
 
-function isValidURL(url: string): boolean {
+function isValidURL(url) {
   const firstUrlPart =
     /^([a-z0-9_\-]{1,5})?(:\/\/)?(([a-z0-9_\-]{1,})(:([a-z0-9_\-]{1,}))?\@)?((www\.)|([a-z0-9_\-]{1,}\.)+)?([a-z0-9_\-]{2,})\.([a-z]{2,4})(\/([a-z0-9_\-]{1,}\/)+)?([a-z0-9_\-]{1,})?(\.[a-z]{2,})?(\?)?(((\&)?[a-z0-9_\-]{1,}(\=[a-z0-9_\-]{1,})?)+)?/gim;
 
@@ -15,20 +16,43 @@ function isValidURL(url: string): boolean {
   return firstUrlPart.test(url) && !secondUrlPart.test(url);
 }
 
+const makeShortUrl = (length) => {
+  var result = "";
+  var characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  var charactersLength = characters.length;
+  for (var i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  console.log(result)
+  return result;
+};
+
+
+
 export default function HomePage() {
+
   const [url, setUrl] = useState("");
   const [isValid, setIsValid] = useState(false);
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+  const handleInputChange = (e) => {
     const inputURL = e.target.value;
     setUrl(inputURL);
     setIsValid(isValidURL(inputURL));
   };
 
+  const {push} = useRouter() 
+   
   return (
     <div>
+    <Head>
+      <title>Home - EzLink</title>
+      <link rel="shortcut icon" href="/LOGO.ico" />
+    </Head>
       <NavBar></NavBar>
       <main className="flex min-h-screen flex-col items-center justify-center px-56 bg-white text-black ">
         <div className="mb-36">
+
           {/* TITLE */}
           <div className="flex justify-center align-center mt-24">
             <h1 className="text-center text-8xl font-black text-blue-500 ">
@@ -47,8 +71,8 @@ export default function HomePage() {
               value={url}
               onChange={handleInputChange}
             ></input>
-            <Link href={"/login"}>
-            <button
+            <a>
+            <button onClick={()=>{push(`/${makeShortUrl(10)}`)}}
               className="duration-300 bg-gray-300 left-2.5 rounded-r-lg w-20 text-black
 				hover:bg-gray-400 hover:duration-300"
             >
@@ -58,7 +82,7 @@ export default function HomePage() {
                 </svg>
               </div>
             </button>
-            </Link>
+            </a>
           </div>
 
           {/* //Invalid URL INDICATOR */}
@@ -107,8 +131,10 @@ export default function HomePage() {
             <h5 className="text-lime-500">Valid URL</h5>
           </div>
         </div>
+
         <Characteristics></Characteristics>
       </main>
+      
       <Copyright></Copyright>
     </div>
   );

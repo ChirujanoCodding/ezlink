@@ -1,9 +1,14 @@
+import Head from "next/head";
 import Link from "next/link";
 import React from "react";
 
 export default function Register() {
   return (
     <div>
+    <Head>
+      <title>Register - EzLink</title>
+      <link rel="shortcut icon" href="/LOGO.ico" />
+    </Head>
       <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-gray-700 to-gray-900">
         <div className="rounded-xl bg-gray-900 p-24 pb-12 pt-10 w-128 flex-col justify-center items-center">
           <h1 className="text-2xl font-bold text-center">Register</h1>
