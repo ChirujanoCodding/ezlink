@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import NavBar from "@/components/NavBar";
 import Characteristics from "@/components/Characteristics";
 import Copyright from "@/components/Copyright";
@@ -16,29 +16,18 @@ function isValidURL(url) {
   return firstUrlPart.test(url) && !secondUrlPart.test(url);
 }
 
-const makeShortUrl = (length) => {
-  var result = "";
-  var characters =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  var charactersLength = characters.length;
-  for (var i = 0; i < length; i++) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength));
-  }
-  console.log(result)
-  return result;
-};
-
-
 
 export default function HomePage() {
-
   const [url, setUrl] = useState("");
+  const [shortURL, setShortURL] = useState("");
   const [isValid, setIsValid] = useState(false);
+  const [showUrl, setShowURL] = useState(false);
 
   const handleInputChange = (e) => {
     const inputURL = e.target.value;
     setUrl(inputURL);
     setIsValid(isValidURL(inputURL));
+    if(!isValid) setShowURL(false)
   };
 
   const {push} = useRouter() 
@@ -72,7 +61,21 @@ export default function HomePage() {
               onChange={handleInputChange}
             ></input>
             <a>
-            <button onClick={()=>{push(`/${makeShortUrl(10)}`)}}
+            <button onClick={()=>{
+               
+
+                if(isValid){
+                  fetch('/api/shortURL',{
+                    method: 'POST',
+                    headers:{
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({url})
+                  }).then((res) => res.json())
+                  .then((data) =>{setShortURL(data.shortUrl)})
+                  setShowURL(true);
+                }
+            }}
               className="duration-300 bg-gray-300 left-2.5 rounded-r-lg w-20 text-black
 				hover:bg-gray-400 hover:duration-300"
             >
@@ -84,7 +87,7 @@ export default function HomePage() {
             </button>
             </a>
           </div>
-
+          <span className={`text-blue-800 ${showUrl ? 'show' : 'hide'}`}>https://ez.link/{shortURL}</span>
           {/* //Invalid URL INDICATOR */}
           <div
             className={`${isValid ? "hide" : "show"} flex items-center mt-5`}
