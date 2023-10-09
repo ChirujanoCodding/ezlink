@@ -62,16 +62,9 @@ export default function HomePage() {
             ></input>
             <a>
             <button onClick={()=>{
-               
-
                 if(isValid){
-                  fetch('/api/shortURL',{
-                    method: 'POST',
-                    headers:{
-                      'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({url})
-                  }).then((res) => res.json())
+                  fetch('/api/shortURL')
+                  .then((res) => res.json())
                   .then((data) =>{setShortURL(data.shortUrl)})
                   setShowURL(true);
                 }

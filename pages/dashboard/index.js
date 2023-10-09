@@ -43,8 +43,8 @@ export default function Dashboard() {
         <title>Dashboard - EzLink</title>
     </Head>
     <NavBar></NavBar>
-    <div className="flex">
-    <div className="block border-r-2 px-5 py-10 mr-10">
+    <div className="grid place-items-center md:flex">
+    <div className=" md:border-r-2 border-t-2 mt-10 md:border-t-0 border-gray-300 px-5 py-5 mr-10 order-last md:order-0">
         <h1 className="text-center text-3xl mb-10 font-bold">Your URLS:</h1>
         <ul>
             {urls.map((el,index)=>{
@@ -56,8 +56,8 @@ export default function Dashboard() {
             
         </ul>
     </div>
-    <div className='pt-10 block'>
-        <h1 className='text-center text-6xl font-bold'>Dashboard</h1>
+    <div className='pt-10 items-center order-0 md:order-last'>
+        <h1 className='md:text-center text-6xl font-bold'>Dashboard</h1>
         <h2 className="mt-2">{urls[urlSelected].direct}</h2>
         <h2 className="mt-10 text-2xl">Number of clicks: {urls[urlSelected].clicks}</h2>
     </div>
