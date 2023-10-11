@@ -26,6 +26,6 @@
       "@/styles/*": ["src/app/styles/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages/homepage/index.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages/homepage/index.js", "pages/api/shortURL.js", "models/url.js", "pages/api/sendMails.js", "pages/api/sendMails.js"],
   "exclude": ["node_modules"]
 }

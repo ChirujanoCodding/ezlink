@@ -11,7 +11,7 @@ export default function Login() {
       <title>Login - EzLink</title>
       <link rel="shortcut icon" href="/LOGO.ico" />
     </Head>
-      <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-gray-700 to-gray-900">
+      <div className="flex min-h-screen flex-col items-center justify-center bg-transparent">
         <div className="rounded-xl bg-gray-900 p-24 pb-12 pt-10 w-128 flex-col justify-center items-center">
 
           <h1 className="text-2xl font-bold text-center">LOGIN</h1>
@@ -22,7 +22,7 @@ export default function Login() {
 
           <div className="flex justify-center items-center">
             <input
-              className="mt-10 bg-transparent border-solid border-2 border-gray-800 rounded-lg p-2 w-30
+              className="mt-10 focus:border-3 focus:border-gray-300 focus:duration-300 bg-transparent border-solid border-2 border-gray-800 rounded-lg p-2 w-30
         focus:outline-none"
               type="text"
               placeholder="E-mail"
@@ -31,18 +31,18 @@ export default function Login() {
 
           <div className="flex justify-center items-center">
             <input
-              className="mt-5 bg-transparent border-solid border-2 border-gray-800 rounded-lg p-2 w-30
+              className="mt-5 duration-300 focus:border-3 focus:border-gray-300 focus:duration-300 bg-transparent border-solid border-2 border-gray-800 rounded-lg p-2 w-30
         focus:outline-none"
               type="password"
               placeholder="Password"
             ></input>
           </div>
 
-          <a>
+          <Link href={"/forgotpass"}>
             <p className="text-sm text-center text-gray-500 mt-5 hover:cursor-pointer">
               Forgot password?
             </p>
-          </a>
+          </Link>
 
           <div className="flex justify-center items-center mt-12">
             <Link href={"/homepage"}><button className="rounded-lg duration-300 border-solid border-2 border-white p-2 px-8 hover:text-black hover:bg-gray-300 hover:duration-300">

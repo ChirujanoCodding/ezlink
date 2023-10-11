@@ -62,13 +62,12 @@ export default function HomePage() {
             ></input>
             <a>
             <button onClick={()=>{
-                if(isValid){
-                  fetch('/api/shortURL')
-                  .then((res) => res.json())
+                 if(isValid){
+                  fetch('/api/shortURL').then((res) => res.json())
                   .then((data) =>{setShortURL(data.shortUrl)})
                   setShowURL(true);
                 }
-            }}
+              }}
               className="duration-300 bg-gray-300 left-2.5 rounded-r-lg w-20 text-black
 				hover:bg-gray-400 hover:duration-300"
             >
