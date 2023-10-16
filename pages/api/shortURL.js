@@ -1,8 +1,0 @@
-export default async (req, res) => {
-	const { url } = req.body;
-	const shortUrl = Math.random().toString(36).slice(5);
-
-	const data = { url, shortUrl };
-
-	res.status(200).send(data);
-};

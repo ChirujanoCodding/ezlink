@@ -30,15 +30,13 @@ export default function HomePage() {
     if(!isValid) setShowURL(false)
   };
 
-  const {push} = useRouter() 
-   
   return (
     <div>
     <Head>
       <title>Home - EzLink</title>
       <link rel="shortcut icon" href="/LOGO.ico" />
     </Head>
-      <NavBar></NavBar>
+      <NavBar/>
       <main className="flex min-h-screen flex-col items-center justify-center px-56 bg-white text-black ">
         <div className="mb-36">
 
@@ -59,12 +57,17 @@ export default function HomePage() {
               placeholder="Enter Link URL"
               value={url}
               onChange={handleInputChange}
-            ></input>
-            <a>
-            <button onClick={()=>{
+            />
+            {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
+<a href="#">
+            <button type="button" onClick={()=>{
                  if(isValid){
-                  fetch('/api/shortURL').then((res) => res.json())
-                  .then((data) =>{setShortURL(data.shortUrl)})
+                  fetch('/api/short',
+                { method: 'POST',
+                  body: JSON.stringify({ url }),
+                  headers: {"Content-Type": "application/json"}
+                }).then((res) => res.json())
+                  .then((data) =>{setShortURL(data.message)})
                   setShowURL(true);
                 }
               }}
@@ -73,6 +76,7 @@ export default function HomePage() {
             >
               <div className="duration-300 h-11 flex justify-center items-center relative left-0 hover:left-2 hover:duration-300">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                  <title>A</title>
                   <path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z" />
                 </svg>
               </div>
@@ -93,6 +97,7 @@ export default function HomePage() {
                 stroke="currentColor"
                 className="w-4 h-4 text-white"
               >
+                <title>papu</title>
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -116,6 +121,7 @@ export default function HomePage() {
                 stroke="currentColor"
                 className="w-4 h-4 text-white"
               >
+                <title>El papu</title>
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -127,10 +133,9 @@ export default function HomePage() {
           </div>
         </div>
 
-        <Characteristics></Characteristics>
+        <Characteristics/>
       </main>
-      
-      <Copyright></Copyright>
+      <Copyright/>
     </div>
   );
 }

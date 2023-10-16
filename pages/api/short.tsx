@@ -26,16 +26,22 @@ const postUrl = async (
 	req: NextApiRequest,
 	res: NextApiResponse<ResponseData>,
 ) => {
-	console.log(req.body);
 	const url = req.body.url;
+	const mail = 'hola@gmail.com';
+	const code = create_url();
+	const user = await UserData.findOne({ mail, password: '1234' });
+	if (!user) {
+		const model = new UserData({
+			mail,
+			password: '1234',
+			urls: [{ id: code, url: url, clicks: 0 }],
+		});
+		await model.save();
+	} else {
+		user.urls.push({ id: code, url: url, clicks: 0 });
+		user.save();
+	}
 
-	const code = '1234';
-	const model = new UserData({
-		mail: 'hola@gmail.com',
-		password: '1234',
-		urls: [{ id: code, url: url, clicks: 0 }],
-	});
-	await model.save();
 	res.send({ message: code });
 };
 
@@ -51,8 +57,7 @@ const getUrl = async (
 	});
 
 	if (result) {
-		send({ message: result.urls[0].url });
-		// redirect(result.urls[0].url);
+		redirect(result.urls[0].url);
 	}
 };
 
@@ -61,3 +66,9 @@ export const config = {
 		bodyParser: true,
 	},
 };
+
+function create_url(): string {
+	const shortUrl = Math.random().toString(36).slice(0, 5);
+
+	return shortUrl;
+}
