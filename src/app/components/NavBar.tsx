@@ -1,12 +1,13 @@
 import Image from "next/image";
 import mylogo from "../../../public/LOGO.png";
+import Link from "next/link";
 
 export default function NavBar() {
   return (
     <main>
       <nav className="bg-white border-gray-200 dark:bg-gray-900">
         <div className="w-full flex justify-between items-center p-1">
-          <a>
+          <Link href={"/homepage"}>
             <Image
               className="hover:cursor-pointer hover:rotate-3"
               src={mylogo}
@@ -14,7 +15,7 @@ export default function NavBar() {
               height={90}
               alt="EzLink"
             />
-          </a>
+          </Link>
           <div className="mr-5">
             <button
               data-collapse-toggle="navbar-default"
@@ -51,36 +52,20 @@ export default function NavBar() {
       md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
               >
                 <li>
-                  <a
-                    className="duration-300 relative bottom-0 block py-2 pl-3 pr-4 text-gray-900
-          md:p-0 dark:text-white md:dark:hover:text-gray-500 hover:cursor-pointer hover:bottom-0.5 hover:duration-300"
-                  >
-                    Plans
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="duration-300 relative bottom-0 block py-2 pl-3 pr-4 text-gray-900
-          md:p-0 dark:text-white md:dark:hover:text-gray-500 hover:cursor-pointer hover:bottom-0.5 hover:duration-300"
-                  >
-                    Contact
-                  </a>
-                </li>
-                <li>
-                  <a
+                  <Link href={"/dashboard"}
                     className="duration-300 relative bottom-0 block py-2 pl-3 pr-4 text-gray-900
           md:p-0 dark:text-white md:dark:hover:text-gray-500 hover:cursor-pointer hover:bottom-0.5 hover:duration-300"
                   >
                     Dashboard
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link href={"/login"}
                     className="duration-300 relative bottom-0 block py-2 pl-3 pr-4 text-gray-900
           md:p-0 dark:text-white md:dark:hover:text-gray-500 hover:cursor-pointer hover:bottom-0.5 hover:duration-300"
                   >
                     Log-In
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
