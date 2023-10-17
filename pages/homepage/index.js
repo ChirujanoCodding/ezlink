@@ -82,7 +82,7 @@ export default function HomePage() {
               </div>
             </button>
           </form>
-          <span className={`text-blue-800 ${showUrl ? 'show' : 'hide'}`}>{shortURL && `https://ezlink-theta.vercel.app/api/short?code=${shortURL}`}</span>
+          <span className={`text-blue-800 ${showUrl ? 'show' : 'hide'}`}>{shortURL && `https://ezlink-3dgdpr5d3-romancitodevs-projects.vercel.app/api/${shortURL}`}</span>
           {/* //Invalid URL INDICATOR */}
           <div
             className={`${isValid ? "hide" : "show"} flex items-center mt-5`}
