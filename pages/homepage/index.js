@@ -41,6 +41,7 @@ export default function HomePage() {
         <div className="mb-36">
 
           {/* TITLE */}
+
           <div className="flex justify-center align-center mt-24">
             <h1 className="text-center text-8xl font-black text-blue-500 ">
               Ez
@@ -49,7 +50,18 @@ export default function HomePage() {
           </div>
 
           {/* //Input */}
-          <div className="flex justify-center items-end">
+          <form className="flex justify-center items-end" onSubmit= {async (e) => {
+              e.preventDefault();
+                 if(isValid) {
+                  const data = await fetch('/api/generate', { method: 'POST', body: JSON.stringify({ url: url  }), headers: {"Content-type": "application/json"} });
+                  const json = await data.json();
+
+                  const { code } = json;
+
+                  setShortURL(code);
+                  setShowURL(true);
+                 }
+              }}>
             <input
               className="mt-10 border-solid border-2 border-gray-300 rounded-l-lg p-2 w-96
 				focus:outline-none"
@@ -58,19 +70,7 @@ export default function HomePage() {
               value={url}
               onChange={handleInputChange}
             />
-            {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
-<a href="#">
-            <button type="button" onClick={()=>{
-                 if(isValid){
-                  fetch('/api/short',
-                { method: 'POST',
-                  body: JSON.stringify({ url }),
-                  headers: {"Content-Type": "application/json"}
-                }).then((res) => res.json())
-                  .then((data) =>{setShortURL(data.message)})
-                  setShowURL(true);
-                }
-              }}
+            <button type="submit"
               className="duration-300 bg-gray-300 left-2.5 rounded-r-lg w-20 text-black
 				hover:bg-gray-400 hover:duration-300"
             >
@@ -81,14 +81,13 @@ export default function HomePage() {
                 </svg>
               </div>
             </button>
-            </a>
-          </div>
-          <span className={`text-blue-800 ${showUrl ? 'show' : 'hide'}`}>https://ez.link/{shortURL}</span>
+          </form>
+          <span className={`text-blue-800 ${showUrl ? 'show' : 'hide'}`}>{shortURL && `https://ezlink-theta.vercel.app/api/short?code=${shortURL}`}</span>
           {/* //Invalid URL INDICATOR */}
           <div
             className={`${isValid ? "hide" : "show"} flex items-center mt-5`}
           >
-            <div className="animate-pulse bg-red-500 w-4 h-4 rounded-lg mr-2">
+            <div className="animate-pulse bg- -500 w-4 h-4 rounded-lg mr-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
